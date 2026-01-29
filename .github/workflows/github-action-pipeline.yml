@@ -6,10 +6,24 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+     #- uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          pwd
+          ls -la
+          echo "This is a sample GitHub Actions workflow."
+          echo "You can customize it as per your project requirements."
+          echo "Happy coding!"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
