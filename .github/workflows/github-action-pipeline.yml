@@ -6,32 +6,32 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 jobs:
-  job1:
+  build-job-name:
     runs-on: ubuntu-latest
     steps:
      #- uses: actions/checkout@v4
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          pwd
-          ls -la
-          echo "This is a sample GitHub Actions workflow."
-          echo "You can customize it as per your project requirements."
-          echo "Happy coding!"
-  job2:
-    runs-on: ubuntu-latest
+        run: echo "this is build job!"
+
+  test-job-name:
+    runs-on: macos-latest
+    needs: build-job-name
     steps:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
+        run: echo this is test job!
+
+  deploy-job-name:
+    runs-on: windows-latest
+    needs: test-job-name
+    steps:
+      - name: Run a one-line script
+        run: echo this is deploy job!
+      - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          pwd
-          ls -la
-          echo "This is a sample GitHub Actions workflow."
-          echo "You can customize it as per your project requirements."
           echo "Happy coding!"
