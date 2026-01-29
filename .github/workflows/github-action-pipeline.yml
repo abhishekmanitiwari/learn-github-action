@@ -16,3 +16,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          pwd
+          ls -la
+          echo "This is a sample GitHub Actions workflow."
+          echo "You can customize it as per your project requirements."
+          echo "Happy coding!"
