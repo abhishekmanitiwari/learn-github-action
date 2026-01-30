@@ -1,6 +1,6 @@
-name: github-action-pipeline
-on: #["push","pull_request","workflow_dispatch"]
-  workflow_dispatch:
+# name: github-action-pipeline
+# on: #["push","pull_request","workflow_dispatch"]
+#   workflow_dispatch:
   # push:
   #   branches: 
   #     - main
@@ -22,15 +22,15 @@ on: #["push","pull_request","workflow_dispatch"]
   
 
   #workflow_dispatch:
-jobs:
-  build-job-name:
-    runs-on: ubuntu-latest
-    steps:
-     #- uses: actions/checkout@v4
-      - name: Run a one-line script
-        run: echo ${{secrets.MY_DOCKER_PASSWORD}}
-         # echo Hello, world ${{vars.MY_NAME}}! This is my first github action pipeline. 
-        # run: echo "this is build job!"
+# jobs:
+#   build-job-name:
+#     runs-on: ubuntu-latest
+#     steps:
+#      #- uses: actions/checkout@v4
+#       - name: Run a one-line script
+#         run: echo ${{secrets.MY_DOCKER_PASSWORD}}
+#          # echo Hello, world ${{vars.MY_NAME}}! This is my first github action pipeline. 
+#         # run: echo "this is build job!"
 
   # test-job-name:
   #   runs-on: macos-latest
@@ -52,3 +52,19 @@ jobs:
   #         echo Add other actions to build,
   #         echo test, and deploy your project.
   #         echo "Happy coding!"
+
+
+
+
+
+name: github-action-pipeline
+on: push
+jobs:
+  action-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v4
+      - name: print index.html file
+        run: cat index.html
+
