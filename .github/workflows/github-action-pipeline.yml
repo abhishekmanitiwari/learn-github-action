@@ -28,8 +28,7 @@ jobs:
     steps:
      #- uses: actions/checkout@v4
       - name: Run a one-line script
-        run: |
-          ${{secrets.MY_DOCKER_PASSWORD}}
+        run: echo ${{secrets.MY_DOCKER_PASSWORD}}
          # echo Hello, world ${{vars.MY_NAME}}! This is my first github action pipeline. 
         # run: echo "this is build job!"
 
