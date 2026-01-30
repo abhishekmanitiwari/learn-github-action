@@ -29,9 +29,8 @@ jobs:
      #- uses: actions/checkout@v4
       - name: Run a one-line script
         run: |
-          echo Hello, world ${{vars.MY_NAME}}! , ${{github.event_name}} ${{github.ref}}
+          echo Hello, world ${{vars.MY_NAME}}! This is my first github action pipeline.
           ${{secrets.MY_DOCKER_PASSWORD}}
-          - name: Run a multi-line script
         # run: echo "this is build job!"
 
   # test-job-name:
