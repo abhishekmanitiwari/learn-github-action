@@ -1,16 +1,24 @@
 name: github-action-pipeline
 on: #["push","pull_request","workflow_dispatch"]
-
-  push:
-    branches: 
-      - main
-      - dev
-      - prod
-      - feature/*
-  #push:
-   # branches: [ "main" ]
-  #pull_request:
-    #branches: [ "main" ]
+  workflow_dispatch:
+  # push:
+  #   branches: 
+  #     - main
+  #     - dev
+  #     - prod
+  #     - feature/*
+  # #push:
+  #  # branches: [ "main" ]
+  # #pull_request:
+  #   #branches: [ "main" ]
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - synchronize
+  #     - reopened
+  #   branches:
+  #     - main
+  #     - feature/*
   
 
   #workflow_dispatch:
@@ -20,27 +28,27 @@ jobs:
     steps:
      #- uses: actions/checkout@v4
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, world ${{vars.MY_NAME}}!
       - name: Run a multi-line script
         run: echo "this is build job!"
 
-  test-job-name:
-    runs-on: macos-latest
-    needs: build-job-name
-    steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: echo this is test job!
+  # test-job-name:
+  #   runs-on: macos-latest
+  #   needs: build-job-name
+  #   steps:
+  #     - name: Run a one-line script
+  #       run: echo Hello, world!
+  #     - name: Run a multi-line script
+  #       run: echo this is test job!
 
-  deploy-job-name:
-    runs-on: windows-latest
-    needs: test-job-name
-    steps:
-      - name: Run a one-line script
-        run: echo this is deploy job!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          echo "Happy coding!"
+  # deploy-job-name:
+  #   runs-on: windows-latest
+  #   needs: test-job-name
+  #   steps:
+  #     - name: Run a one-line script
+  #       run: echo this is deploy job!
+  #     - name: Run a multi-line script
+  #       run: |
+  #         echo Add other actions to build,
+  #         echo test, and deploy your project.
+  #         echo "Happy coding!"
