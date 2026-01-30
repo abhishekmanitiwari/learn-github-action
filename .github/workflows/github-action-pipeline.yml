@@ -30,8 +30,6 @@ jobs:
       - name: Run a one-line script
         run: |
           echo Hello, world ${{vars.MY_NAME}}! , ${{github.event_name}} ${{github.ref}}
-          ${{github.event.head_commit.message}} ,
-          ${{github.event.pusher.name}} ,
           ${{github.actor}},
           ${{github.repository}},
           ${{github.workflow}},
